@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Page Refresh</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            url = urlParams.get("link")
+            request = function () {
+                $.getJSON(url, function (json) {
+                        window.parent.location.hash = "#Script:page.refresh";
+                });
+            };
+            window.setInterval(request, urlParams.get(interval));
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
